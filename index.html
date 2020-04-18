@@ -1,27 +1,45 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Calcufree</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <script src="main.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <h1>click here</h1>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <div class="title">Calcufree</div>
+    <div class="wrapper">
+        <div class="containerplus">
+            <input type="text" id="inputPlus1" class="input" />
+            <span>+</span>
+            <input type="text" id="inputPlus2" class="input" />
+            <button type="button" class="btn">Run</button>
+            <input type="text" id="outputPlusHasil" class="output" disabled/>
+        </div>
+        <div class="containerminus">
+            <input type="text" id="inputMinus1" class="input" />
+            <span>-</span>
+            <input type="text" id="inputMinus2" class="input" />
+            <button type="button" class="btn">Run</button>
+            <input type="text" id="outputMinusHasil" class="output" disabled/>
+        </div>
+        <div class="containermultiple">
+            <input type="text" id="inputMultiple1" class="input" />
+            <span>×</span>
+            <input type="text" id="inputMultiple2" class="input" />
+            <button type="button" class="btn">Run</button>
+            <input type="text" id="outputMultipleHasil" class="output" disabled/>
+        </div>
+        <div class="containerdivide">
+            <input type="text" id="inputDivide1" class="input" />
+            <span>÷</span>
+            <input type="text" id="inputDivide2" class="input" />
+            <button type="button" class="btn">Run</button>
+            <input type="text" id="outputDivideHasil" class="output" disabled/>
+        </div>
+    </div>
 
-    <script src="" async defer></script>
+
 </body>
 
 </html>
