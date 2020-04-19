@@ -1,13 +1,18 @@
 // membuat kamus data satuan
 var kamusDataInduk = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"];
+var kamusDataBelas = "belas";
 
-
+// fungsi untuk menampilkan hasil operasi berupa kata-kata dibawah 12
 function angkaKeTulisan(jumlahDigit, hasilOperasi) {
-    var hasilTulisan;
+    var hasilTulisan, angkaBelakang;
     if (hasilOperasi < 12) {
         hasilTulisan = kamusDataInduk[hasilOperasi];
-
-
+        // untuk menampilkan hasil operasi belasan dengan kata-kata 
+    } else {
+        if (hasilOperasi < 20) {
+            angkaBelakang = hasilOperasi - 10;
+            hasilTulisan = kamusDataInduk[angkaBelakang] + ' ' + kamusDataBelas;
+        }
     }
     return hasilTulisan;
 }
