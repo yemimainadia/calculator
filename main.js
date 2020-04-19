@@ -3,20 +3,32 @@ var kamusDataInduk = ["", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh
 var kamusDataBelas = "belas";
 var kamusDataPuluhan = ["", "", "dua puluh", "tiga puluh", "empat puluh", "lima puluh", "enam puluh", "tujuh puluh", "delapan puluh", "sembilan puluh"];
 
-// fungsi untuk menampilkan hasil operasi berupa kata-kata dibawah 12
-function angkaKeTulisan(jumlahDigit, hasilOperasi) {
-    var hasilTulisan, angkaBelakang;
-    if (hasilOperasi == 0) {
-        hasilTulisan = "nol";
-    } else if (hasilOperasi < 12) {
-        hasilTulisan = kamusDataInduk[hasilOperasi];
-        // untuk menampilkan hasil operasi belasan dengan kata-kata 
-    } else {
+
+function angkaKeTulisan(jumlahDigitOperasi, hasilOperasi) {
+    var hasilTulisan, angkaBelakang, hasilOperasiString;
+    // hasilOperasiString untuk mengkonversi hasil operasi menjadi string
+    //diletakkan di atas agar dapat dipanggil berulang kali
+    hasilOperasiString = hasilOperasi.toString();
+
+    // fungsi untuk menampilkan hasil operasi satu digit
+    if (jumlahDigitOperasi == 1) {
+        if (hasilOperasi == 0) {
+            hasilTulisan = "nol";
+        } else {
+            hasilTulisan = kamusDataInduk[hasilOperasi];
+        }
+    }
+    // fungsi untuk menampilkan hasil operasi dua digit
+    if (jumlahDigitOperasi == 2) {
         if (hasilOperasi < 20) {
             angkaBelakang = hasilOperasi - 10;
             hasilTulisan = kamusDataInduk[angkaBelakang] + ' ' + kamusDataBelas;
+        } else {
+            hasilTulisan = kamusDataPuluhan[hasilOperasiString[0]] + ' ' + kamusDataInduk[hasilOperasiString[1]];
         }
     }
+
+
     return hasilTulisan;
 }
 
@@ -29,9 +41,9 @@ function calcPlus() {
     console.log(iPlus2);
     var hasilOperasi = iPlus1 + iPlus2;
     // cara menghitung jumlah digit hasil penjumlahan
-    var jumlahDigit = hasilOperasi.toString().length;
+    var jumlahDigitOperasi = hasilOperasi.toString().length;
     // mengubah angka ke tulisan dan menampilkan
-    document.getElementById("outputPlusHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+    document.getElementById("outputPlusHasil").value = angkaKeTulisan(jumlahDigitOperasi, hasilOperasi);
 }
 
 
@@ -43,9 +55,9 @@ function calcMinus() {
     console.log(iMinus2);
     var hasilOperasi = iMinus1 - iMinus2;
     // cara menghitung jumlah digit hasil penjumlahan
-    var jumlahDigit = hasilOperasi.toString().length;
+    var jumlahDigitOperasi = hasilOperasi.toString().length;
     // mengubah angka ke tulisan dan menampilkan
-    document.getElementById("outputMinusHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+    document.getElementById("outputMinusHasil").value = angkaKeTulisan(jumlahDigitOperasi, hasilOperasi);
 
 }
 // membuat fungsi perkalian
@@ -56,9 +68,9 @@ function calcMultiple() {
     console.log(iMultiple2);
     var hasilOperasi = iMultiple1 * iMultiple2;
     // cara menghitung jumlah digit hasil penjumlahan
-    var jumlahDigit = hasilOperasi.toString().length;
+    var jumlahDigitOperasi = hasilOperasi.toString().length;
     // mengubah angka ke tulisan dan menampilkan
-    document.getElementById("outputMultipleHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+    document.getElementById("outputMultipleHasil").value = angkaKeTulisan(jumlahDigitOperasi, hasilOperasi);
 
 }
 
@@ -70,8 +82,8 @@ function calcDivide() {
     console.log(iDivide2);
     var hasilOperasi = iDivide1 / iDivide2;
     // cara menghitung jumlah digit hasil penjumlahan
-    var jumlahDigit = hasilOperasi.toString().length;
+    var jumlahDigitOperasi = hasilOperasi.toString().length;
     // mengubah angka ke tulisan dan menampilkan
-    document.getElementById("outputDivideHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+    document.getElementById("outputDivideHasil").value = angkaKeTulisan(jumlahDigitOperasi, hasilOperasi);
 
 }
