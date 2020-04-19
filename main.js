@@ -1,33 +1,13 @@
 // membuat kamus data satuan
-var kamusDataSatuan = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh"]
+var kamusDataInduk = ["nol", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas"];
 
 
 function angkaKeTulisan(jumlahDigit, hasilOperasi) {
     var hasilTulisan;
-    if (jumlahDigit == 1) {
-        if (hasilOperasi == 0) {
-            hasilTulisan = kamusDataSatuan[0];
-        } else if (hasilOperasi == 1) {
-            hasilTulisan = kamusDataSatuan[1];
-        } else if (hasilOperasi == 2) {
-            hasilTulisan = kamusDataSatuan[2];
-        } else if (hasilOperasi == 3) {
-            hasilTulisan = kamusDataSatuan[3];
-        } else if (hasilOperasi == 4) {
-            hasilTulisan = kamusDataSatuan[4];
-        } else if (hasilOperasi == 5) {
-            hasilTulisan = kamusDataSatuan[5];
-        } else if (hasilOperasi == 6) {
-            hasilTulisan = kamusDataSatuan[6];
-        } else if (hasilOperasi == 7) {
-            hasilTulisan = kamusDataSatuan[7];
-        } else if (hasilOperasi == 8) {
-            hasilTulisan = kamusDataSatuan[8];
-        } else if (hasilOperasi == 9) {
-            hasilTulisan = kamusDataSatuan[9];
-        } else {
-            alert('system error');
-        }
+    if (hasilOperasi < 12) {
+        hasilTulisan = kamusDataInduk[hasilOperasi];
+
+
     }
     return hasilTulisan;
 }
@@ -42,7 +22,6 @@ function calcPlus() {
     var hasilOperasi = iPlus1 + iPlus2;
     // cara menghitung jumlah digit hasil penjumlahan
     var jumlahDigit = hasilOperasi.toString().length;
-
     // mengubah angka ke tulisan dan menampilkan
     document.getElementById("outputPlusHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
 }
