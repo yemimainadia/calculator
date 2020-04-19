@@ -1,0 +1,1 @@
+var inputPlus1 = document.getElementById("inputPlus1").value;
