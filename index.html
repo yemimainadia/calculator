@@ -4,6 +4,7 @@
 <head>
     <script src="main.js"></script>
     <link href="style.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -11,11 +12,11 @@
     <div class="wrapper">
         <!-- Ini digunakan untuk container penjumlahan -->
         <div class="containerplus">
-            <input type="number" id="inputPlus1" class="input" />
+            <input type="number" id="inputPlus1" class="input" max="999" />
             <span>+</span>
             <input type="number" id="inputPlus2" class="input" />
             <button type="button" class="btn" onclick="calcPlus()">Run</button>
-            <input type="number" id="outputPlusHasil" class="output" disabled/>
+            <input type="text" id="outputPlusHasil" class="output" disabled/>
         </div>
         <!-- Ini digunakan untuk container pengurangan -->
         <div class="containerminus">
