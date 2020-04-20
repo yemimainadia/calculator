@@ -120,3 +120,11 @@ span {
     text-align: center;
     font-weight: bold;
 }
+
+.hasil-ganjil {
+    background-color: yellow;
+}
+
+.hasil-genap {
+    background-color: palegreen;
+}
