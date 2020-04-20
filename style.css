@@ -28,6 +28,11 @@
     padding: 0;
 }
 
+.wrapper span {
+    color: whitesmoke;
+    font-family: 'Pacifico', cursive;
+}
+
 .pluskotak,
 .minuskotak,
 .multiplekotak,
