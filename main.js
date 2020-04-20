@@ -23,8 +23,12 @@ function angkaKeTulisan(jumlahDigit, hasilOperasi) {
 
     if (jumlahDigit == 2) {
         if (hasilOperasi < 20) {
-            angkaBelakang = hasilOperasi % 10;
-            hasilTulisan = kamusDataInduk[angkaBelakang] + ' ' + kamusDataBelasan;
+            if (hasilOperasi == 10 || hasilOperasi == 11) {
+                hasilTulisan = kamusDataInduk[hasilOperasi];
+            } else {
+                angkaBelakang = hasilOperasi % 10;
+                hasilTulisan = kamusDataInduk[angkaBelakang] + ' ' + kamusDataBelasan;
+            }
         } else {
             hasilTulisan = kamusDataPuluhan[hasilOperasiString[0]] + ' ' + kamusDataInduk[hasilOperasiString[1]];
         }
@@ -109,6 +113,13 @@ function angkaKeTulisan(jumlahDigit, hasilOperasi) {
         alert('Jumlah Digit Output melebihi batas! \nMaksimal output adalah ribuan (9999)');
     }
 
+    if (isNaN(hasilOperasi)) {
+        hasilTulisan = 'Tidak terdefinisi';
+    }
+    if (hasilOperasi === undefined) {
+        hasilTulisan = 'Tidak terhingga';
+    }
+
     return hasilTulisan;
 }
 
@@ -123,19 +134,21 @@ function calcPlus() {
 
     // mengubah angka ke tulisan dan menampilkan
     document.getElementById("outputPlusHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+    // hapus dulu "class" dari hasilOperasi sebelumnya
+    document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
+    document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
+    document.getElementById("outputPlusHasil").classList.remove('hasil-nol');
+    // di sini baru tambahkan nama class sesuai hasil
     // cek hasilOperasi apakah ganjil atau genap
     if (hasilOperasi % 2 == 0) {
-        //jika genap tambahkan class ke OUTPUT untuk distyling menjadi berwarna hijau
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
-        // di sini baru tambahkan nama class sesuai hasil
-        document.getElementById("outputPlusHasil").classList.add('hasil-genap');
+        // jika hasilOperasi adalah 0
+        if (hasilOperasi == 0) {
+            document.getElementById("outputPlusHasil").classList.add('hasil-nol');
+        } else {
+            // di sini baru tambahkan nama class sesuai hasil
+            document.getElementById("outputPlusHasil").classList.add('hasil-genap');
+        }
     } else {
-        //jika ganjil tambahkan class ke OUTPUT untuk distyling menjadi berwarna merah
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
         // di sini baru tambahkan nama class sesuai hasil
         document.getElementById("outputPlusHasil").classList.add('hasil-ganjil');
     }
@@ -151,21 +164,24 @@ function calcMinus() {
     var jumlahDigit = hasilOperasi.toString().length;
     // mengubah angka ke tulisan dan menampilkan
     document.getElementById("outputMinusHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+
+    // hapus dulu "class" dari hasilOperasi sebelumnya
+    document.getElementById("outputMinusHasil").classList.remove('hasil-ganjil');
+    document.getElementById("outputMinusHasil").classList.remove('hasil-genap');
+    document.getElementById("outputMinusHasil").classList.remove('hasil-nol');
+    // di sini baru tambahkan nama class sesuai hasil
     // cek hasilOperasi apakah ganjil atau genap
     if (hasilOperasi % 2 == 0) {
-        //jika genap tambahkan class ke OUTPUT untuk distyling menjadi berwarna hijau
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
-        // di sini baru tambahkan nama class sesuai hasil
-        document.getElementById("outputPlusHasil").classList.add('hasil-genap');
+        // jika hasilOperasi adalah 0
+        if (hasilOperasi == 0) {
+            document.getElementById("outputMinusHasil").classList.add('hasil-nol');
+        } else {
+            // di sini baru tambahkan nama class sesuai hasil
+            document.getElementById("outputMinusHasil").classList.add('hasil-genap');
+        }
     } else {
-        //jika ganjil tambahkan class ke OUTPUT untuk distyling menjadi berwarna merah
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
         // di sini baru tambahkan nama class sesuai hasil
-        document.getElementById("outputPlusHasil").classList.add('hasil-ganjil');
+        document.getElementById("outputMinusHasil").classList.add('hasil-ganjil');
     }
 
 }
@@ -178,23 +194,25 @@ function calcMultiple() {
     var jumlahDigit = hasilOperasi.toString().length;
     // mengubah angka ke tulisan dan menampilkan
     document.getElementById("outputMultipleHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+
+    // hapus dulu "class" dari hasilOperasi sebelumnya
+    document.getElementById("outputMultipleHasil").classList.remove('hasil-ganjil');
+    document.getElementById("outputMultipleHasil").classList.remove('hasil-genap');
+    document.getElementById("outputMultipleHasil").classList.remove('hasil-nol');
+    // di sini baru tambahkan nama class sesuai hasil
     // cek hasilOperasi apakah ganjil atau genap
     if (hasilOperasi % 2 == 0) {
-        //jika genap tambahkan class ke OUTPUT untuk distyling menjadi berwarna hijau
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
-        // di sini baru tambahkan nama class sesuai hasil
-        document.getElementById("outputPlusHasil").classList.add('hasil-genap');
+        // jika hasilOperasi adalah 0
+        if (hasilOperasi == 0) {
+            document.getElementById("outputMultipleHasil").classList.add('hasil-nol');
+        } else {
+            // di sini baru tambahkan nama class sesuai hasil
+            document.getElementById("outputMultipleHasil").classList.add('hasil-genap');
+        }
     } else {
-        //jika ganjil tambahkan class ke OUTPUT untuk distyling menjadi berwarna merah
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
         // di sini baru tambahkan nama class sesuai hasil
-        document.getElementById("outputPlusHasil").classList.add('hasil-ganjil');
+        document.getElementById("outputMultipleHasil").classList.add('hasil-ganjil');
     }
-
 }
 
 // membuat fungsi pembagian
@@ -206,21 +224,23 @@ function calcDivide() {
     var jumlahDigit = hasilOperasi.toString().length;
     // mengubah angka ke tulisan dan menampilkan
     document.getElementById("outputDivideHasil").value = angkaKeTulisan(jumlahDigit, hasilOperasi);
+    console.log(hasilOperasi);
+    // hapus dulu "class" dari hasilOperasi sebelumnya
+    document.getElementById("outputDivideHasil").classList.remove('hasil-ganjil');
+    document.getElementById("outputDivideHasil").classList.remove('hasil-genap');
+    document.getElementById("outputDivideHasil").classList.remove('hasil-nol');
+    // di sini baru tambahkan nama class sesuai hasil
     // cek hasilOperasi apakah ganjil atau genap
     if (hasilOperasi % 2 == 0) {
-        //jika genap tambahkan class ke OUTPUT untuk distyling menjadi berwarna hijau
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
-        // di sini baru tambahkan nama class sesuai hasil
-        document.getElementById("outputPlusHasil").classList.add('hasil-genap');
+        // jika hasilOperasi adalah 0
+        if (hasilOperasi == 0) {
+            document.getElementById("outputDivideHasil").classList.add('hasil-nol');
+        } else {
+            // di sini baru tambahkan nama class sesuai hasil
+            document.getElementById("outputDivideHasil").classList.add('hasil-genap');
+        }
     } else {
-        //jika ganjil tambahkan class ke OUTPUT untuk distyling menjadi berwarna merah
-        // tapi sebelumnya hapus dulu class yang sudah sempat terbuat apabila ada
-        document.getElementById("outputPlusHasil").classList.remove('hasil-ganjil');
-        document.getElementById("outputPlusHasil").classList.remove('hasil-genap');
         // di sini baru tambahkan nama class sesuai hasil
-        document.getElementById("outputPlusHasil").classList.add('hasil-ganjil');
+        document.getElementById("outputDivideHasil").classList.add('hasil-ganjil');
     }
-
 }
