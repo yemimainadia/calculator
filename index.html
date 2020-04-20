@@ -8,40 +8,59 @@
 </head>
 
 <body>
+
     <div class="title">Calcufree</div>
     <div class="wrapper">
+        <img src="assets/img/batre2.png" width="200px">
         <!-- Ini digunakan untuk container penjumlahan -->
-        <div class="containerplus">
-            <input type="number" id="inputPlus1" class="input" max="999" />
-            <span>+</span>
-            <input type="number" id="inputPlus2" class="input" />
-            <button type="button" class="btn" onclick="calcPlus()">Run</button>
-            <input type="text" id="outputPlusHasil" class="output" disabled/>
+
+        <div class="pluskotak">
+            <div class="containerplus">
+                <input type="number" id="inputPlus1" class="input" max="999" />
+                <span>+</span>
+                <input type="number" id="inputPlus2" class="input" />
+                <button type="button" class="btn" onclick="calcPlus()">Run</button>
+                <input type="text" id="outputPlusHasil" class="output" disabled/>
+            </div>
         </div>
-        <!-- Ini digunakan untuk container pengurangan -->
-        <div class="containerminus">
-            <input type="number" id="inputMinus1" class="input" />
-            <span>-</span>
-            <input type="number" id="inputMinus2" class="input" />
-            <button type="button" class="btn" onclick="calcMinus()">Run</button>
-            <input type="text" id="outputMinusHasil" class="output" disabled/>
+
+        <div class="minuskotak">
+            <!-- Ini digunakan untuk container pengurangan -->
+            <div class="containerminus">
+                <input type="number" id="inputMinus1" class="input" />
+                <span>-</span>
+                <input type="number" id="inputMinus2" class="input" />
+                <button type="button" class="btn" onclick="calcMinus()">Run</button>
+                <input type="text" id="outputMinusHasil" class="output" disabled/>
+            </div>
         </div>
-        <!-- Ini digunakan untuk container perkalian -->
-        <div class="containermultiple">
-            <input type="number" id="inputMultiple1" class="input" />
-            <span>×</span>
-            <input type="number" id="inputMultiple2" class="input" />
-            <button type="button" class="btn" onclick="calcMultiple()">Run</button>
-            <input type="text" id="outputMultipleHasil" class="output" disabled/>
+
+        <div class="multiplekotak">
+            <!-- Ini digunakan untuk container perkalian -->
+            <div class="containermultiple">
+                <input type="number" id="inputMultiple1" class="input" />
+                <span>×</span>
+                <input type="number" id="inputMultiple2" class="input" />
+                <button type="button" class="btn" onclick="calcMultiple()">Run</button>
+                <input type="text" id="outputMultipleHasil" class="output" disabled/>
+            </div>
         </div>
-        <!-- Ini digunakan untuk container pembagian -->
-        <div class="containerdivide">
-            <input type="number" id="inputDivide1" class="input" />
-            <span>÷</span>
-            <input type="number" id="inputDivide2" class="input" />
-            <button type="button" class="btn" onclick="calcDivide()">Run</button>
-            <input type="text" id="outputDivideHasil" class="output" disabled/>
+
+        <div class="dividekotak">
+            <!-- Ini digunakan untuk container pembagian -->
+            <div class="containerdivide">
+                <input type="number" id="inputDivide1" class="input" />
+                <span>÷</span>
+                <input type="number" id="inputDivide2" class="input" />
+                <button type="button" class="btn" onclick="calcDivide()">Run</button>
+                <input type="text" id="outputDivideHasil" class="output" disabled/>
+            </div>
         </div>
+
+
+
+
+
     </div>
 
 
